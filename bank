@@ -1,0 +1,15 @@
+# Author: Tharny Elilvannan
+# Last Updated: October 24, 2024
+# Purpose: Simulates a bank.
+
+import random
+
+class Bank:
+
+    def __init__(self, name, initialDeposit):
+        self.name = name
+        self.accountNumber = random.rantInt(1, (2**63 - 1))
+        self.balance = initialDeposit
+
+    def getBalance(self):
+        return self.balance
