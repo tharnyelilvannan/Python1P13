@@ -1,0 +1,6 @@
+# Author: Tharny Elilvannan
+# Last Updated: October 24, 2024
+# Purpose: Reverses a string.
+
+str = input("Enter a string")
+print(str)
