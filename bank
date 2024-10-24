@@ -4,21 +4,26 @@
 
 import random
 
+# bank that allows you to deposit and withdraw funds
 class Bank:
 
+    # new accounts are attached to a name, password, and initial balance
     def __init__(self, name, initialDeposit, password):
         self.name = name
-        self.accountNumber = random.rantInt(1, (2**63 - 1))
+        self.accountNumber = random.randInt(1, (2**63 - 1))
         self.balance = initialDeposit
         self.password = password
 
+    # returns amount of money in account
     def getBalance(self):
         
+        # if password is correct
         if (self.checkPassword):
             return self.balance
         else:
             return "Incorrect password."
         
+    # returns unique account number
     def getAccountNumber(self):
 
         if (self.checkPassword):
@@ -26,16 +31,23 @@ class Bank:
         else:
             return "Incorrect password."
         
+    # withdraw funds from account    
     def withdraw(self):
 
+        # checks if password is correct
         if (self.checkPassword):
             withdrawal = input("Enter the amount you would like to withdraw: ")
 
-            self.balance = self.balance - withdrawal
-            return self.balance
+            # checks if there is enough money in the account
+            if (self.overdraft(withdrawal)):
+                self.balance = self.balance - withdrawal
+                return self.balance
+            else:
+                return "Insufficient funds."
         else:
             return "Incorrect password."
         
+    # deposits money into the account
     def deposit(self):
 
         if (self.checkPassword):
@@ -46,6 +58,8 @@ class Bank:
         else:
             return "Incorrect password."
             
+    # checks password
+    # returns true if password is correct 
     def checkPassword(self):
         password = input("Enter your password: ")
 
@@ -53,3 +67,11 @@ class Bank:
             return True
         else:
             return False
+        
+    # checks if there is enough money in the account to do a withdrawal
+    # returns true if there is enough money
+    def overdraft(self, withdrawal):
+        if ((self.balance - withdrawal) < 0):
+            return False
+        else:
+            return True
