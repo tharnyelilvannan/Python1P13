@@ -6,10 +6,15 @@ import random
 
 class Bank:
 
-    def __init__(self, name, initialDeposit):
+    def __init__(self, name, initialDeposit, password):
         self.name = name
         self.accountNumber = random.rantInt(1, (2**63 - 1))
         self.balance = initialDeposit
+        self.password = password
 
-    def getBalance(self):
-        return self.balance
+    def getBalance(self, password):
+
+        if (password == self.password):
+            return self.balance
+        else:
+            return "Incorrect password."
