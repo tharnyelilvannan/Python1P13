@@ -10,7 +10,7 @@ class Bank:
     # new accounts are attached to a name, password, and initial balance
     def __init__(self, name, initialDeposit, password):
         self.name = name
-        self.accountNumber = random.randInt(1, (2**63 - 1))
+        self.accountNumber = random.randint(1, (2**63 - 1))
         self.balance = initialDeposit
         self.password = password
 
@@ -18,7 +18,7 @@ class Bank:
     def getBalance(self):
         
         # if password is correct
-        if (self.checkPassword):
+        if (self.checkPassword()):
             return self.balance
         else:
             return "Incorrect password."
@@ -26,7 +26,7 @@ class Bank:
     # returns unique account number
     def getAccountNumber(self):
 
-        if (self.checkPassword):
+        if (self.checkPassword()):
             return self.accountNumber
         else:
             return "Incorrect password."
@@ -35,7 +35,7 @@ class Bank:
     def withdraw(self):
 
         # checks if password is correct
-        if (self.checkPassword):
+        if (self.checkPassword()):
             withdrawal = input("Enter the amount you would like to withdraw: ")
 
             # checks if there is enough money in the account
@@ -50,7 +50,7 @@ class Bank:
     # deposits money into the account
     def deposit(self):
 
-        if (self.checkPassword):
+        if (self.checkPassword()):
             depositAmount = input("Enter the amount you would like to deposit: ")
 
             self.balance = self.balance + depositAmount
@@ -75,3 +75,8 @@ class Bank:
             return False
         else:
             return True
+        
+
+account1 = Bank("Tharny Elilvannan", 2000, "hello")
+print(account1.getBalance())
+print(account1.getAccountNumber())
