@@ -1,8 +1,8 @@
 # Author: Tharny Elilvannan
 # Last Updated: April 05, 2024
 # Purpose: Simulates a tv menu.
-#          I did this in first-year based off a prompt for a computing 
-#          final from Professor Sam Scott.
+#          I did this in first-year based off a prompt as practice
+#          a computing final from Professor Sam Scott.
 
 class TV:
 
